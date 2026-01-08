@@ -1,4 +1,7 @@
+import { Suspense } from "react";
 import { API_URL } from "../../../(home)/page";
+import MovieInfo from "../../../../components/movie-info";
+import MovieVideos from "../../../../components/movie-videos";
 //movie id로 data 가져오기
 async function getMovie(id: string) {
   console.log(`fetching data  ${Date.now()}`);
@@ -31,10 +34,22 @@ const MovieDetailPage = async ({ params, searchParams }) => {
    const movie = await getMovie(id);
    const video = await getVideos(id);  // videos와 movie를 두개 다 가져오려면 시간이 걸림 => promise All 사용
 */
-  console.log("---------------------");
-  console.log("start fetching");
-  const [movie, videos] = await Promise.all([getMovie(id), getVideos(id)]);
-  return <div>{movie.title}</div>;
+  //   console.log("---------------------");
+  //   console.log("start fetching");
+  //   const [movie, videos] = await Promise.all([getMovie(id), getVideos(id)]);
+
+  /*suspense사용=> 2가지 동시에 fetch가능 => 하나의 요청이 완료되면 component가 render됨.*/
+
+  return (
+    <div>
+      <Suspense fallback={<h1>movie detil loading fallback</h1>}>
+        <MovieInfo id={id} />
+      </Suspense>
+      <Suspense fallback={<h1>movie viedos loading fallback</h1>}>
+        <MovieVideos id={id} />
+      </Suspense>
+    </div>
+  );
 };
 
 export default MovieDetailPage;
