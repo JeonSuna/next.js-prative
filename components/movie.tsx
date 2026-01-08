@@ -11,7 +11,7 @@ export default function Movie({ movie }) {
         alt={movie.title}
         className="relative z-10 rounded-t-xl"
       />
-      <Link href={`/movies/${movie.id}`} className="">
+      <Link prefetch href={`/movies/${movie.id}`} className="">
         {movie.title}
       </Link>
     </li>
