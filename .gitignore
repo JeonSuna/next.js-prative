@@ -7,19 +7,35 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
-.env
+# Dependency directories
+node_modules/
 
-# Editor directories and files
+# Next.js build output
+.next/
+out/
+
+# Production
+build/
+
+# dotenv environment variables
+.env
+.env*.local
+
+# OS files
+.DS_Store
+
+# IDE / editor files
 .vscode/*
 !.vscode/extensions.json
 .idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# Optional caches
+.cache/
+vite.config.ts.timestamp*
+vite.config.js.timestamp*
+*.tsbuildinfo
