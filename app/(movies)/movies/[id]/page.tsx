@@ -5,7 +5,7 @@ import MovieVideos from "../../../../components/movie-videos";
 //movie id로 data 가져오기
 async function getMovie(id: string) {
   console.log(`fetching data  ${Date.now()}`);
-  await new Promise((resolve) => setTimeout(resolve, 5000));
+  //   await new Promise((resolve) => setTimeout(resolve, 5000));
 
   const res = await fetch(`${API_URL}/${id}`);
 
@@ -17,7 +17,7 @@ async function getMovie(id: string) {
 
 async function getVideos(id: string) {
   console.log(`fetching data videos ${Date.now()}`);
-  await new Promise((resolve) => setTimeout(resolve, 5000));
+  //   await new Promise((resolve) => setTimeout(resolve, 5000));
 
   const res = await fetch(`${API_URL}/${id}/videos`);
 

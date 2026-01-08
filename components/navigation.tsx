@@ -6,14 +6,13 @@ export default function Navigation() {
   const path = usePathname();
 
   return (
-    <div className="bg-red-400">
-      네비게이션임
-      <ul>
-        <li>
+    <div className="">
+      <ul className="flex gap-2">
+        <li className=" hover:bg-lime-200">
           <Link href={"/"}>home</Link>
           {path === "/" ? "😍" : ""}
         </li>
-        <li>
+        <li className="hover:bg-lime-200">
           <Link href={"/about-us"}>about-us</Link>
           {path === "/about-us" ? "😍" : ""}
         </li>
