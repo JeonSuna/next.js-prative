@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Movie from "../../components/movie";
 
 export const metadata = {
   title: "Home",
@@ -24,16 +25,9 @@ export default async function Partice() {
     <div className="flex  flex-col items-center justify-center ">
       <p className="mb-20 mt-2 font-bold">마음에 드는 영화를 골라보세요💖</p>
       <ul className=" grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 items-center justify-center ">
-        {data.map((movie) => (
-          <li
-            key={movie.id}
-            className=" hover:scale-105 h-20 rounded-xl items-center justify-center text-center  bg-gray-200 "
-          >
-            <Link href={`/movies/${movie.id}`} className="">
-              {movie.title}
-            </Link>
-          </li>
-        ))}
+        {data.map((movie) => {
+          return <Movie movie={movie} key={movie.id} />;
+        })}
       </ul>
     </div>
   );
